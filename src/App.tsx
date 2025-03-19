@@ -47,7 +47,7 @@ function App() {
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
       <footer>
-        Made by Andrew Orlov, Joshua Chelen
+        Made by Andrew Orlov, Joshua Chelen, Gael Lucero-Palacios
       </footer>
     </div>
   );

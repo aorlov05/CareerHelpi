@@ -1,12 +1,10 @@
-import React, {useState} from "react";
-import {Button} from "react-bootstrap";
+import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 
-
-export function HomePage(): React.JSX.Element{
-    
-    return(<div>
-            Test Text
-
-
-    </div>);
+export function HomePage(): React.JSX.Element {
+    return (
+        <div>
+            Home Page
+        </div>
+    );
 }

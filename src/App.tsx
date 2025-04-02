@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Button, Form } from 'react-bootstrap';
 import { Header } from "./Header";
 import { HomePage } from './webpages/HomePage';
 import { PageType } from "./pages";
@@ -33,7 +32,7 @@ function App() {
   function getPage() {
     switch (page) {
       case "Home":
-        return <HomePage />
+        return <HomePage handleSubmit={handleSubmit} changeKey={changeKey} />
       case "Basic":
         return <BasicQuiz />
       case "Detailed":
@@ -47,12 +46,6 @@ function App() {
     <div className="App">
       <Header setPage={setPage} />
       {getPage()}
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-      </Form>
       <footer>
         Made by Andrew Orlov, Joshua Chelen, Gael Lucero-Palacios
       </footer>

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Button, Form } from 'react-bootstrap';
 import { Header } from "./Header";
 import { HomePage } from './webpages/HomePage';
+import { PageType } from "./pages";
+import { BasicQuiz } from "./webpages/BasicQuiz";
+import { DetailedQuiz } from './webpages/DetailedQuiz';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -14,6 +16,7 @@ if (prevKey !== null) {
 
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
+  const [page, setPage] = useState<PageType>("Home");
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -25,16 +28,24 @@ function App() {
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+
+  function getPage() {
+    switch (page) {
+      case "Home":
+        return <HomePage handleSubmit={handleSubmit} changeKey={changeKey} />
+      case "Basic":
+        return <BasicQuiz />
+      case "Detailed":
+        return <DetailedQuiz />
+      default:
+        return;
+    }
+  }
+
   return (
     <div className="App">
-      <Header />
-      <HomePage />
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-      </Form>
+      <Header setPage={setPage} />
+      {getPage()}
       <footer>
         Made by Andrew Orlov, Joshua Chelen, Gael Lucero-Palacios
       </footer>

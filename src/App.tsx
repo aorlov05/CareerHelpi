@@ -32,7 +32,7 @@ function App() {
   function getPage() {
     switch (page) {
       case "Home":
-        return <HomePage handleSubmit={handleSubmit} changeKey={changeKey} />
+        return <HomePage handleSubmit={handleSubmit} changeKey={changeKey} setPage = {setPage} />
       case "Basic":
         return <BasicQuiz />
       case "Detailed":

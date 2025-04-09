@@ -2,10 +2,22 @@ import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { QuizQuestion } from './QuizQuestion';
 
-export function Question({ quizQuestion }: { quizQuestion: QuizQuestion }): React.JSX.Element {
+export function Question({ 
+    addProgress, 
+    quizQuestion 
+}: { 
+    addProgress: () => void; 
+    quizQuestion: QuizQuestion; 
+}): React.JSX.Element {
     const [answer, setAnswer] = useState<string>("");
+    const [answered, setAnswered] = useState<boolean>(false);
 
     function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
+        if (!answered) {
+            setAnswered(true);
+            addProgress();
+        }
+
         setAnswer(event.target.value);
     }
 

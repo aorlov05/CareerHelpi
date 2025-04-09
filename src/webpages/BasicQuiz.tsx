@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { QuizQuestion } from '../QuizQuestion';
 import { Question } from '../Question';
+import { Button } from 'react-bootstrap';
 
 const BASIC_QUESTIONS: QuizQuestion[] = [
     {
@@ -48,12 +49,23 @@ const BASIC_QUESTIONS: QuizQuestion[] = [
 ]
 
 export function BasicQuiz(): React.JSX.Element {
+    const [progress, setProgress] = useState<number>(0);
+
+    function addProgress() {
+        setProgress(progress + 1);
+    }
+
+    function isFinished(): boolean {
+        return progress === BASIC_QUESTIONS.length;
+    }
+
     return (
         <div>
             <h1>Basic Quiz</h1>
             { BASIC_QUESTIONS.map((quizQuestion: QuizQuestion) => 
-                <Question key={quizQuestion.name} quizQuestion={quizQuestion} />
+                <Question addProgress={addProgress} key={quizQuestion.name} quizQuestion={quizQuestion} />
             )}
+            <Button disabled={!isFinished()}>Get Results</Button>
         </div>
     )
 }

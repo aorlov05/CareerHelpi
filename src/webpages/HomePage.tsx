@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
+import { PageType } from "../pages";
 
 // Props for API key form
 type APIKeyFormProps = {
@@ -9,12 +10,12 @@ type APIKeyFormProps = {
 
 // Props for HomePage (includes APIKeyFormProps + setPage)
 type HomePageProps = APIKeyFormProps & {
-    setPage: (page: "Home" | "Basic" | "Detailed") => void;
+    setPage: (page: PageType) => void;
 };
 
 // Props for the quiz buttons component
 type StartQuizButtonsProps = {
-    setPage: (page: "Home" | "Basic" | "Detailed") => void;
+    setPage: (page: PageType) => void;
 };
 
 // API Key input form

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding-bottom: 3rem;
 }
 
 .App-logo {
@@ -36,3 +37,42 @@
     transform: rotate(360deg);
   }
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f1f1f1;
+  padding: 0.75rem;
+  text-align: center;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image: url("./CareerImages.png"); /* public path reference */
+  background-repeat: repeat;
+  background-size: 150%; /* zoom in */
+  animation: panBackground 60s linear infinite;
+  z-index: -1;
+  opacity: 0.08; /* adjust to taste */
+  pointer-events: none;
+}
+
+@keyframes panBackground {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  100% {
+    transform: translate(-20%, -20%);
+  }
+}
+
+
+

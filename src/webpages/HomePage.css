@@ -1,0 +1,29 @@
+.quiz-card {
+    border: 1px solid #ccc;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+
+.quiz-description {
+    min-height: 60px; /* space reserved for your future description */
+    margin-bottom: 1rem;
+}
+
+.api-key-form-wrapper {
+    width: 33.75rem; /* or whatever value you want to match the quiz section width */
+    margin: 0 auto;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display:block;
+}
+
+.API-Key-Input {
+    border-radius: 6px;
+  }

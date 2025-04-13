@@ -10,6 +10,8 @@ import { DetailedQuiz } from './webpages/DetailedQuiz';
 let keyData = "";
 const saveKeyData = "MYKEY";
 const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
+
+
 if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
@@ -44,7 +46,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header setPage={setPage} />
+      <div className="animated-bg"></div>
+      <Header setPage={setPage} currentPage={page} />
       {getPage()}
       <footer>
         Made by Andrew Orlov, Joshua Chelen, Gael Lucero-Palacios

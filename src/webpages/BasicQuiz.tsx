@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { QuizQuestion } from '../QuizQuestion';
 import { Question } from '../Question';
 import { Button } from 'react-bootstrap';
-
+import './BasicQuiz.css';
 const BASIC_QUESTIONS: QuizQuestion[] = [
     {
         name: "Where do you see yourself working?",
@@ -60,10 +60,10 @@ export function BasicQuiz(): React.JSX.Element {
     }
 
     return (
-        <div>
+        <div className = "basic-quiz-wrapper">
             <h1>Basic Quiz</h1>
             { BASIC_QUESTIONS.map((quizQuestion: QuizQuestion) => 
-                <Question addProgress={addProgress} key={quizQuestion.name} quizQuestion={quizQuestion} />
+                <div className = "basic-question"><Question addProgress={addProgress} key={quizQuestion.name} quizQuestion={quizQuestion}></Question></div>
             )}
             <Button disabled={!isFinished()}>Get Results</Button>
         </div>

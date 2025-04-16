@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { QuizQuestion } from './QuizQuestion';
-
+import "./webpages/BasicQuiz.css"
 export function Question({ 
     addProgress, 
     quizQuestion 
@@ -26,7 +26,7 @@ export function Question({
             <h3>
                 <Form.Label>{quizQuestion.name}</Form.Label>
             </h3>
-            <div>
+            <div className = "options">
                 { quizQuestion.options.map((option: string) => 
                     <Form.Check 
                         inline

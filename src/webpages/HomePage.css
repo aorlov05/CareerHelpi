@@ -8,6 +8,10 @@
     box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
 }
 
+.full-quiz {
+    width: 80%;
+}
+
 .quiz-description {
     min-height: 60px; /* space reserved for your future description */
     margin-bottom: 1rem;

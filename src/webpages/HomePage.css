@@ -13,12 +13,12 @@
 }
 
 .quiz-description {
-    min-height: 60px; /* space reserved for your future description */
+    min-height: 60px; 
     margin-bottom: 1rem;
 }
 
 .api-key-form-wrapper {
-    width: 33.75rem; /* or whatever value you want to match the quiz section width */
+    width: 33.75rem; 
     margin: 0 auto;
     padding: 1.5rem;
     border: 1px solid #ddd;

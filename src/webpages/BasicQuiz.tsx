@@ -111,15 +111,19 @@ export function BasicQuiz(): React.JSX.Element {
     }
 
     return (
+      <div>
         <div style={{ display: "flex", gap: "3rem", justifyContent: "center", marginTop: "2rem" }}>
-            <div className="basic-quiz">
-                <h1>Basic Quiz</h1>
-                { BASIC_QUESTIONS.map((quizQuestion: QuizQuestion) => 
-                    <div className = "basic-question"><Question addProgress={addProgress} key={quizQuestion.name} quizQuestion={quizQuestion} /></div>
-                )}
-                <Progress progress={progress} numOfQuestions={BASIC_QUESTIONS.length} />
-                <div className = "get-results"><Button disabled={!isFinished()}>Get Results</Button></div>
-            </div>
+          <div className="basic-quiz">
+            <h1>Basic Quiz</h1>
+            { BASIC_QUESTIONS.map((quizQuestion: QuizQuestion) => 
+              <div className="basic-question"><Question addProgress={addProgress} key={quizQuestion.name} quizQuestion={quizQuestion} /></div>
+            )}
+            <div className="get-results"><Button disabled={!isFinished()}>Get Results</Button></div>
+          </div>
         </div>
+        <div className="progress-footer">
+          <Progress progress={progress} numOfQuestions={BASIC_QUESTIONS.length} />
+        </div>
+      </div>
     )
 }

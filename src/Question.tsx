@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { QuizQuestion } from './QuizQuestion';
+import { BasicQuizQuestion,DetailedQuizQuestion } from './QuizQuestion';
 import "./webpages/BasicQuiz.css"
+
+
+type QuestionProps = 
+    { addProgress: () => void; quizQuestion: BasicQuizQuestion } 
+    | { addProgress: () => void; quizQuestion: DetailedQuizQuestion };
+
 export function Question({ 
     addProgress, 
     quizQuestion 
-}: { 
-    addProgress: () => void; 
-    quizQuestion: QuizQuestion; 
-}): React.JSX.Element {
+}: QuestionProps): React.JSX.Element {
     const [answer, setAnswer] = useState<string>("");
     const [answered, setAnswered] = useState<boolean>(false);
 
@@ -21,22 +24,39 @@ export function Question({
         setAnswer(event.target.value);
     }
 
+    function isBasicQuestion(q: BasicQuizQuestion | DetailedQuizQuestion): q is BasicQuizQuestion {
+        return (q as BasicQuizQuestion).options !== undefined;
+    }
+
     return (
         <Form.Group controlId="answers">
             <h3>
                 <Form.Label>{quizQuestion.name}</Form.Label>
             </h3>
-            <div className = "options">
-                { quizQuestion.options.map((option: string) => 
-                    <Form.Check 
-                        inline
-                        type="radio" 
-                        key={option}
-                        name={`options-${quizQuestion.name}`} 
+            <div className="options">
+                {isBasicQuestion(quizQuestion) ? (
+                    //BasicQuizQuestion (multiple choice)
+                    quizQuestion.options.map((option: string) => (
+                        <Form.Check
+                            inline
+                            type="radio"
+                            key={option}
+                            name={`options-${quizQuestion.name}`}
+                            onChange={updateAnswer}
+                            label={option}
+                            value={option}
+                            checked={answer === option}
+                        />
+                    ))
+                ) : (
+                    //DetailedQuizQuestion (text area)
+                    <Form.Control
+                        as="textarea"
+                        rows={3}
+                        placeholder="Type your response here..."
+                        value={answer}
                         onChange={updateAnswer}
-                        label={option} 
-                        value={option} 
-                        checked={answer === option} />
+                    />
                 )}
             </div>
         </Form.Group>

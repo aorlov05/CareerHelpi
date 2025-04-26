@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { QuizQuestion } from '../QuizQuestion';
+import { BasicQuizQuestion } from '../QuizQuestion';
 import { Question } from '../Question';
 import { Button } from 'react-bootstrap';
 import { Progress } from '../Progress';
 import "./BasicQuiz.css"
 
-const BASIC_QUESTIONS: QuizQuestion[] = [
+const BASIC_QUESTIONS: BasicQuizQuestion[] = [
     {
       name: "Where do you see yourself working?",
       options: [
@@ -115,7 +115,7 @@ export function BasicQuiz(): React.JSX.Element {
         <div style={{ display: "flex", gap: "3rem", justifyContent: "center", marginTop: "2rem" }}>
           <div className="basic-quiz">
             <h1>Basic Quiz</h1>
-            { BASIC_QUESTIONS.map((quizQuestion: QuizQuestion) => 
+            { BASIC_QUESTIONS.map((quizQuestion: BasicQuizQuestion) => 
               <div className="basic-question"><Question addProgress={addProgress} key={quizQuestion.name} quizQuestion={quizQuestion} /></div>
             )}
             <div className="get-results"><Button disabled={!isFinished()}>Get Results</Button></div>

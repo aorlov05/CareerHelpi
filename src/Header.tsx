@@ -34,6 +34,15 @@ export function Header({
             >
               Detailed Quiz
             </Nav.Link>
+            <Nav.Link
+              onClick={() => setPage("Results")}
+              className={currentPage === "Results" ? "active-link" : ""}
+            >
+              Results
+            </Nav.Link>
+
+
+
           </Nav>
         </Container>
       </Navbar>

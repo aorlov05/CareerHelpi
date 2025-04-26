@@ -3,9 +3,9 @@ import './App.css';
 import { Header } from "./Header";
 import { HomePage } from './webpages/HomePage';
 import { PageType } from "./pages";
-import { BasicQuiz } from "./webpages/BasicQuiz";
-import { DetailedQuiz } from './webpages/DetailedQuiz';
-
+import { BasicQuiz } from "./webpages/QuizPages/BasicQuiz";
+import { DetailedQuiz } from './webpages/QuizPages/DetailedQuiz';
+import {Results} from './webpages/Results';
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
 const saveKeyData = "MYKEY";
@@ -39,6 +39,8 @@ function App() {
         return <BasicQuiz />
       case "Detailed":
         return <DetailedQuiz />
+      case "Results":
+        return <Results/>
       default:
         return;
     }

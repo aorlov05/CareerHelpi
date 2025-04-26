@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { BasicQuizQuestion,DetailedQuizQuestion } from './QuizQuestion';
-import "./webpages/BasicQuiz.css"
+import "./Quiz.css"
 
 
 type QuestionProps = 

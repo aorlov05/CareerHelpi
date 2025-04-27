@@ -2,7 +2,7 @@ import React from "react";
 import { DetailedQuizQuestion } from "./QuizQuestion";
 import { Question } from "./Question";
 import { QuizTemplate } from "./QuizTemplate";
-
+import { PageType } from "../../pages";
 
 const DETAILED_QUESTIONS: DetailedQuizQuestion[] = [
     {name: "Tell us about a project or hobby you worked on that made you lose track of time. What drew you into it?", input: ""},
@@ -18,14 +18,20 @@ const DETAILED_QUESTIONS: DetailedQuizQuestion[] = [
 ];
 
 
-export function DetailedQuiz(): React.JSX.Element {
+export function DetailedQuiz({ setPage }: { setPage: (page: PageType) => void }): React.JSX.Element {
     return (
       <QuizTemplate
         quizTitle="Detailed Quiz"
         questions={DETAILED_QUESTIONS}
         numOfQuestions={DETAILED_QUESTIONS.length}
-        renderQuestion={(quizQuestion, addProgress) => (
-          <Question addProgress={addProgress} quizQuestion={quizQuestion} />
+        setPage = {setPage}
+        renderQuestion={(quizQuestion, addProgress, updateAnswer, selectedAnswer) => (
+          <Question 
+            addProgress={addProgress} 
+            quizQuestion={quizQuestion} 
+            updateAnswer={updateAnswer} 
+            selectedAnswer={selectedAnswer}
+          />
         )}
       />
     );

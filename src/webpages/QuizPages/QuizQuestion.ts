@@ -9,6 +9,6 @@ export interface DetailedQuizQuestion{
 }
 
 export interface Answer{
-    name:string;
-
+    question_name:string;
+    question_result:string;
 }

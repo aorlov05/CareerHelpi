@@ -5,5 +5,10 @@ export interface BasicQuizQuestion {
 
 export interface DetailedQuizQuestion{
     name:string,
-    response:string
+    input:string
+}
+
+export interface Answer{
+    question_name:string;
+    question_result:string;
 }

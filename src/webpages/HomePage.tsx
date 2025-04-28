@@ -48,7 +48,7 @@ function StartQuizButtons({ setPage }: StartQuizButtonsProps): React.JSX.Element
                 <p className="quiz-description">
                     {"Answer simple bullet-point questions with predetermined options"}
                 </p>
-                <Button className="Basic-Quiz-Button" onClick={() => setPage("Basic")}>
+                <Button className="Basic-Quiz-Button" onClick={() => setPage({page:"Basic"})}>
                     Start Simple Questions
                 </Button>
             </div>
@@ -58,7 +58,7 @@ function StartQuizButtons({ setPage }: StartQuizButtonsProps): React.JSX.Element
                 <p className="quiz-description">
                     {"Give more detailed answers to questions to fully express yourself"}
                 </p>
-                <Button className="Detailed-Quiz-Button" onClick={() => setPage("Detailed")}>
+                <Button className="Detailed-Quiz-Button" onClick={() => setPage({page:"Detailed"})}>
                     Start Detailed Questions
                 </Button>
             </div>

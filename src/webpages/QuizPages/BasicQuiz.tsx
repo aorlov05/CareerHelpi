@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { BasicQuizQuestion } from '../QuizQuestion';
-import { Question } from '../Question';
-import { Button } from 'react-bootstrap';
-import { Progress } from '../Progress';
-import "./BasicQuiz.css"
+import React from "react";
+import { BasicQuizQuestion } from "./QuizQuestion";
+import { Question } from "./Question";
+import { QuizTemplate } from "./QuizTemplate";
+import "./Quiz.css";
+import { PageType } from "../../pages";
 
 const BASIC_QUESTIONS: BasicQuizQuestion[] = [
     {
@@ -98,32 +98,21 @@ const BASIC_QUESTIONS: BasicQuizQuestion[] = [
     }
   ];
   
-
-export function BasicQuiz(): React.JSX.Element {
-    const [progress, setProgress] = useState<number>(0);
-
-    function addProgress() {
-        setProgress(progress + 1);
-    }
-
-    function isFinished(): boolean {
-        return progress === BASIC_QUESTIONS.length;
-    }
-
+  export function BasicQuiz({ setPage }: { setPage: (page: PageType) => void }): React.JSX.Element {
     return (
-      <div>
-        <div style={{ display: "flex", gap: "3rem", justifyContent: "center", marginTop: "2rem" }}>
-          <div className="basic-quiz">
-            <h1>Basic Quiz</h1>
-            { BASIC_QUESTIONS.map((quizQuestion: BasicQuizQuestion) => 
-              <div className="basic-question"><Question addProgress={addProgress} key={quizQuestion.name} quizQuestion={quizQuestion} /></div>
-            )}
-            <div className="get-results"><Button disabled={!isFinished()}>Get Results</Button></div>
-          </div>
-        </div>
-        <div className="progress-footer">
-          <Progress progress={progress} numOfQuestions={BASIC_QUESTIONS.length} />
-        </div>
-      </div>
-    )
-}
+      <QuizTemplate
+        quizTitle="Basic Quiz"
+        questions={BASIC_QUESTIONS}
+        numOfQuestions={BASIC_QUESTIONS.length}
+        setPage={setPage}
+        renderQuestion={(quizQuestion, addProgress, updateAnswer, selectedAnswer) => (
+          <Question 
+            addProgress={addProgress} 
+            quizQuestion={quizQuestion} 
+            updateAnswer={updateAnswer} 
+            selectedAnswer={selectedAnswer}
+          />
+        )}
+      />
+    );
+  }

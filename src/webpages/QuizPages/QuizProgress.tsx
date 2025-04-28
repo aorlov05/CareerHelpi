@@ -1,6 +1,6 @@
 import React from 'react';
 import { ProgressBar } from 'react-bootstrap';
-import "./Quiz.css";
+//import "./webpages/QuizPages/Quiz.css";
 
 export function Progress({ 
     progress, 

@@ -17,20 +17,20 @@ export function Header({
           <span className="separator">|</span>
           <Nav className="nav-inline">
             <Nav.Link
-              onClick={() => setPage("Home")}
-              className={currentPage === "Home" ? "active-link" : ""}
+              onClick={() => setPage({page:"Home"})}
+              className={currentPage.page === "Home" ? "active-link" : ""}
             >
               Home
             </Nav.Link>
             <Nav.Link
-              onClick={() => setPage("Basic")}
-              className={currentPage === "Basic" ? "active-link" : ""}
+              onClick={() => setPage({page:"Basic"})}
+              className={currentPage.page === "Basic" ? "active-link" : ""}
             >
               Basic Quiz
             </Nav.Link>
             <Nav.Link
-              onClick={() => setPage("Detailed")}
-              className={currentPage === "Detailed" ? "active-link" : ""}
+              onClick={() => setPage({page:"Detailed"})}
+              className={currentPage.page === "Detailed" ? "active-link" : ""}
             >
               Detailed Quiz
             </Nav.Link>

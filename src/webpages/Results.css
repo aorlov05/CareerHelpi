@@ -1,0 +1,19 @@
+.results-page {
+    padding: 1rem;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .result-item {
+    background-color: #f7f7f7;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  }
+  

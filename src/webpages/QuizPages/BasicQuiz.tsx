@@ -4,6 +4,7 @@ import { Question } from "./Question";
 import { QuizTemplate } from "./QuizTemplate";
 import "./Quiz.css";
 import { PageType } from "../../pages";
+import OpenAI from 'openai';
 
 const BASIC_QUESTIONS: BasicQuizQuestion[] = [
     {

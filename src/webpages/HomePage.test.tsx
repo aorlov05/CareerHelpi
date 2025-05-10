@@ -1,7 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { HomePage } from "./HomePage";
-import { PageType } from "../pages";
 
 describe("HomePage Component tests", () => {
     let setPageMock: jest.Mock;

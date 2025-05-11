@@ -63,7 +63,10 @@ export function QuizTemplate<T extends { name: string }>({
             </div>
           ))}
           <div className="get-results">
-            <Button disabled={!isFinished()} onClick={() => setPage({page:"Results",answers})}>
+            <Button disabled={!isFinished()} onClick={() => {
+              setPage({page:"Results",answers}); 
+              setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 0);
+            }}>
               Get Results
             </Button>
           </div>

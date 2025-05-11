@@ -9,7 +9,7 @@ type ResultsProps = {
 };
 
 export function Results({ answers }: ResultsProps): React.JSX.Element {
-  const [gptResponse, setGptResponse] = useState<string>("Loading...");
+  const [gptResponse, setGptResponse] = useState<string>("");
   const hasFetched = useRef(false);
 
   useEffect(() => {
@@ -52,11 +52,15 @@ export function Results({ answers }: ResultsProps): React.JSX.Element {
     <div className="results-page">
       <h1>Quiz Results</h1>
       <div className="results-list result-item">
-        <ReactMarkdown components={{
-          // Map `h1` (`# heading`) to use `h2`s.
-          h1: 'h2'
-        }}>{gptResponse}</ReactMarkdown>
+        {
+          gptResponse === "" ? <img className="loading-icon" src="./spin_load.gif" alt="Loading"></img> 
+          : <ReactMarkdown components={{
+            // Map `h1` (`# heading`) to use `h2`s.
+            h1: 'h2'
+          }}>{gptResponse}</ReactMarkdown>
+        }
       </div>
+      <h1>Your Responses</h1>
       <div className="results-list">
         {answers.map((answer, index) => (
           <div key={index} className="result-item">

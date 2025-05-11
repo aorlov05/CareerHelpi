@@ -60,6 +60,7 @@ export function Results({ answers }: ResultsProps): React.JSX.Element {
           }}>{gptResponse}</ReactMarkdown>
         }
       </div>
+      <h1>Your Responses</h1>
       <div className="results-list">
         {answers.map((answer, index) => (
           <div key={index} className="result-item">

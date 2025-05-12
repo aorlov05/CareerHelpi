@@ -4,33 +4,56 @@
     padding-bottom: 0.5rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   }
-  
+
   .brand-title {
     font-weight: bold;
     font-size: 1.25rem;
     margin-right: 0.5rem;
   }
-  
+
   .separator {
     margin: 0 0.5rem;
     color: #888;
   }
-  
+
   .nav-inline .nav-link {
     padding: 0 0.5rem;
     font-size: 1.1rem;
     color: #007bff;
   }
-  
+
   .nav-inline .nav-link:hover {
     text-decoration: underline;
   }
-  
+
   .active-link {
-    background-color: rgba(0, 123, 255, 0.1); 
+    background-color: rgba(0, 123, 255, 0.1);
     border-radius: 8px;
     padding: 0.3rem 0.75rem;
     font-weight: 500;
     color: #0056b3 !important;
   }
-  
+
+  .zoom-toggle {
+    margin-left: 1rem;
+    white-space: nowrap;
+  }
+
+  /* Zoom mode increases font size globally */
+  .zoomed {
+    font-size: 1.25em;
+  }
+
+  /* Additional zoom styles for Header content */
+  .zoomed .custom-navbar .brand-title,
+  .zoomed .custom-navbar .nav-inline .nav-link {
+    font-size: 1.25em !important;
+  }
+
+  /* Zoomed mode applies to form inputs as well */
+  .zoomed textarea.form-control,
+  .zoomed input.form-control,
+  .zoomed select.form-control {
+    font-size: 1.25em !important;
+  }
+

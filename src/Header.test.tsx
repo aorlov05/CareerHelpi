@@ -12,21 +12,21 @@ describe("Header Component navigation tests", () => {
         currentPage = { page: "Home" };
     });
 
-    test("(1 pt) Clicking 'Home' calls setPage with page: 'Home'", () => {
+    test("Clicking 'Home' calls setPage with page: 'Home'", () => {
         render(<Header setPage={setPageMock} currentPage={currentPage} />);
         const homeLink = screen.getByText(/home/i);
         fireEvent.click(homeLink);
         expect(setPageMock).toHaveBeenCalledWith({ page: "Home" });
     });
 
-    test("(1 pt) Clicking 'Basic Quiz' calls setPage with page: 'Basic'", () => {
+    test("Clicking 'Basic Quiz' calls setPage with page: 'Basic'", () => {
         render(<Header setPage={setPageMock} currentPage={currentPage} />);
         const basicLink = screen.getByText(/basic quiz/i);
         fireEvent.click(basicLink);
         expect(setPageMock).toHaveBeenCalledWith({ page: "Basic" });
     });
 
-    test("(1 pt) Clicking 'Detailed Quiz' calls setPage with page: 'Detailed'", () => {
+    test("Clicking 'Detailed Quiz' calls setPage with page: 'Detailed'", () => {
         render(<Header setPage={setPageMock} currentPage={currentPage} />);
         const detailedLink = screen.getByText(/detailed quiz/i);
         fireEvent.click(detailedLink);

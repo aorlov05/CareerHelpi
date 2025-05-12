@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+ 
+/* Zoom mode increases font size for accessibility */
+.zoomed {
+  font-size: 1.15em;
+}
+ 

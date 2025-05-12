@@ -53,7 +53,7 @@ export function Results({ answers }: ResultsProps): React.JSX.Element {
       <h1>Quiz Results</h1>
       <div className="results-list result-item">
         {
-          gptResponse === "" ? <img className="loading-icon" src="./spin_load.gif" alt="Loading"></img> 
+          gptResponse === "" ? <div><p>Loading...</p><img className="loading-icon" src="./spin_load.gif" alt="Loading"></img> </div>
           : <ReactMarkdown components={{
             // Map `h1` (`# heading`) to use `h2`s.
             h1: 'h2'
